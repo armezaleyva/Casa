@@ -6,6 +6,8 @@
 
 #define GLEW_STATIC
 
+#include <math.h>
+
 #include "GL/glew.h"
 #include "GLFW/glfw3.h"
 
@@ -18,10 +20,10 @@ void dibujarCasa() {
 
 	glColor3f(1.0f, 0.76f, 0.3f);
 
-	glVertex3f(-0.4f, 0.3f, 0.0f);
-	glVertex3f(0.6f, 0.3f, 0.0f);
-	glVertex3f(0.6f, -0.7f, 0.0f);
-	glVertex3f(-0.4f, -0.7f, 0.0f);
+	glVertex3f(-0.3f, 0.3f, 0.0f);
+	glVertex3f(0.7f, 0.3f, 0.0f);
+	glVertex3f(0.7f, -0.7f, 0.0f);
+	glVertex3f(-0.3f, -0.7f, 0.0f);
 
 	glEnd();
 
@@ -29,9 +31,9 @@ void dibujarCasa() {
 
 	glColor3f(0.4f, 0.2f, 0.0f);
 
-	glVertex3f(-0.6f, 0.2f, 0.0f);
-	glVertex3f(0.8f, 0.2f, 0.0f);
-	glVertex3f(0.1f, 0.6f, 0.0f);
+	glVertex3f(-0.5f, 0.2f, 0.0f);
+	glVertex3f(0.9f, 0.2f, 0.0f);
+	glVertex3f(0.2f, 0.6f, 0.0f);
 
 	glEnd();
 
@@ -39,10 +41,10 @@ void dibujarCasa() {
 
 	glColor3f(0.9f, 0.9f, 0.9f);
 
-	glVertex3f(-0.1f, -0.3f, 0.0f);
-	glVertex3f(0.3f, -0.3f, 0.0f);
-	glVertex3f(0.3f, -0.7f, 0.0f);
-	glVertex3f(-0.1f, -0.7f, 0.0f);
+	glVertex3f(0.0f, -0.3f, 0.0f);
+	glVertex3f(0.4f, -0.3f, 0.0f);
+	glVertex3f(0.4f, -0.7f, 0.0f);
+	glVertex3f(0.0f, -0.7f, 0.0f);
 
 	glEnd();
 
@@ -50,10 +52,23 @@ void dibujarCasa() {
 
 	glColor3f(0.6f, 1.0f, 1.0f);
 
-	glVertex3f(0.2f, -0.2f, 0.0f);
-	glVertex3f(0.5f, -0.2f, 0.0f);
-	glVertex3f(0.5f, 0.1f, 0.0f);
-	glVertex3f(0.2f, 0.1f, 0.0f);
+	glVertex3f(0.3f, -0.2f, 0.0f);
+	glVertex3f(0.6f, -0.2f, 0.0f);
+	glVertex3f(0.6f, 0.1f, 0.0f);
+	glVertex3f(0.3f, 0.1f, 0.0f);
+
+	glEnd();
+
+	glBegin(GL_POLYGON);
+
+	glColor3f(0.0f, 0.0f, 0.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.05 * cos(i * 3.14159 / 180.0) + 0.32,
+			0.05 * sin(i * 3.14159 / 180.0) - 0.45,
+			0.0f
+		);
+	}
 
 	glEnd();
 }
@@ -62,6 +77,11 @@ void dibujarArbol() {
 	glBegin(GL_POLYGON);
 
 	glColor3f(0.4f, 0.2f, 0.0f);
+
+	glVertex3f(-0.6f, -0.8f, 0.0f);
+	glVertex3f(-0.8f, -0.8f, 0.0f);
+	glVertex3f(-0.8f, -0.3f, 0.0f);
+	glVertex3f(-0.6f, -0.3f, 0.0f);
 
 	glEnd();
 }
@@ -75,6 +95,20 @@ void dibujarCesped() {
 	glVertex3f(1.0f, -0.6f, 0.0f);
 	glVertex3f(1.0f, -1.0f, 0.0f);
 	glVertex3f(-1.0f, -1.0f, 0.0f);
+
+	glEnd();
+}
+
+void dibujarSol() {
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 0.2f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.2 * cos(i * 3.14159 / 180.0) - 0.7,
+			0.2 * sin(i * 3.14159 / 180.0) + 0.7,
+			0.0f
+		);
+	}
 
 	glEnd();
 }
@@ -152,6 +186,7 @@ void dibujarTriangulos() {
 }
 
 void dibujar() {
+	dibujarSol();
 	dibujarCesped();
 	dibujarCasa();
 	dibujarArbol();
