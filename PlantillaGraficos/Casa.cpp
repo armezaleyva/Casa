@@ -128,6 +128,28 @@ void dibujarNubes() {
 	glColor3f(1.0f, 1.0f, 1.0f);
 	for (double i = 0; i < 360.0; i += 5) {
 		glVertex3f(
+			0.17 * cos(i * 3.14159 / 180.0) + 0.40,
+			0.08 * sin(i * 3.14159 / 180.0) + 0.80,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.17 * cos(i * 3.14159 / 180.0) + 0.50,
+			0.08 * sin(i * 3.14159 / 180.0) + 0.85,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
 			0.17 * cos(i * 3.14159 / 180.0) + 0.70,
 			0.08 * sin(i * 3.14159 / 180.0) + 0.55,
 			0.0f
@@ -204,6 +226,22 @@ void dibujarCesped() {
 	glVertex3f(-1.0f, -1.0f, 0.0f);
 
 	glEnd();
+
+	glLineWidth(5);
+
+	glBegin(GL_LINE_STRIP);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(-0.4f, -0.8f, 0.0f);
+	glVertex3f(-0.3f, -0.9f, 0.0f);
+	glVertex3f(-0.2f, -0.8f, 0.0f);
+	glEnd();
+
+	glBegin(GL_LINE_STRIP);
+	glColor3f(0.0f, 0.0f, 0.0f);
+	glVertex3f(0.4f, -0.75f, 0.0f);
+	glVertex3f(0.3f, -0.9f, 0.0f);
+	glVertex3f(0.2f, -0.8f, 0.0f);
+	glEnd();
 }
 
 void dibujarSol() {
@@ -216,7 +254,40 @@ void dibujarSol() {
 			0.0f
 		);
 	}
+	glEnd();
 
+	glBegin(GL_LINES);
+	glColor3f(1.0f, 1.0f, 0.2f);
+
+	glVertex3f(-0.98f, 0.98f, 0.0f);
+	glVertex3f(-0.90f, 0.90f, 0.0f);
+
+	glVertex3f(-0.70f, 0.95f, 0.0f);
+	glVertex3f(-0.68f, 0.99f, 0.0f);
+
+	glVertex3f(-0.50f, 0.96f, 0.0f);
+	glVertex3f(-0.58f, 0.88f, 0.0f);
+
+	glVertex3f(-0.50f, 0.81f, 0.0f);
+	glVertex3f(-0.38f, 0.84f, 0.0f);
+
+	glVertex3f(-0.48f, 0.76f, 0.0f);
+	glVertex3f(-0.40f, 0.73f, 0.0f);
+
+	glVertex3f(-0.55f, 0.67f, 0.0f);
+	glVertex3f(-0.45f, 0.63f, 0.0f);
+
+	glVertex3f(-0.57f, 0.60f, 0.0f);
+	glVertex3f(-0.49f, 0.55f, 0.0f);
+
+	glVertex3f(-0.65f, 0.55f, 0.0f);
+	glVertex3f(-0.55f, 0.43f, 0.0f);
+
+	glVertex3f(-0.75f, 0.52f, 0.0f);
+	glVertex3f(-0.77f, 0.42f, 0.0f);
+
+	glVertex3f(-0.90f, 0.58f, 0.0f);
+	glVertex3f(-0.97f, 0.48f, 0.0f);
 	glEnd();
 }
 
@@ -293,11 +364,11 @@ void dibujarTriangulos() {
 }
 
 void dibujar() {
-	dibujarSol();
 	dibujarCesped();
 	dibujarNubes();
 	dibujarCasa();
 	dibujarArbol();
+	dibujarSol();
 }
 
 int main() {
