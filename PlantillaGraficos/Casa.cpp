@@ -27,6 +27,7 @@ void dibujarCasa() {
 
 	glEnd();
 
+	// Techo
 	glBegin(GL_TRIANGLES);
 
 	glColor3f(0.4f, 0.2f, 0.0f);
@@ -37,6 +38,7 @@ void dibujarCasa() {
 
 	glEnd();
 
+	// Puerta
 	glBegin(GL_POLYGON);
 
 	glColor3f(0.9f, 0.9f, 0.9f);
@@ -48,6 +50,7 @@ void dibujarCasa() {
 
 	glEnd();
 
+	// Ventana
 	glBegin(GL_POLYGON);
 
 	glColor3f(0.6f, 1.0f, 1.0f);
@@ -58,7 +61,32 @@ void dibujarCasa() {
 	glVertex3f(0.3f, 0.1f, 0.0f);
 
 	glEnd();
+	
+	glBegin(GL_LINE_STRIP);
 
+	glColor3f(0.4f, 0.2f, 0.0f);
+
+	glVertex3f(0.3f, -0.2f, 0.0f);
+	glVertex3f(0.6f, -0.2f, 0.0f);
+	glVertex3f(0.6f, 0.1f, 0.0f);
+	glVertex3f(0.3f, 0.1f, 0.0f);
+	glVertex3f(0.3f, -0.2f, 0.0f);
+	
+	glEnd();
+
+	glBegin(GL_LINES);
+
+	glColor3f(0.4f, 0.2f, 0.0f);
+
+	glVertex3f(0.3f, -0.05f, 0.0f);
+	glVertex3f(0.6f, -0.05f, 0.0f);
+
+	glVertex3f(0.45f, 0.1f, 0.0f);
+	glVertex3f(0.45f, -0.2f, 0.0f);
+
+	glEnd();
+
+	// Perilla
 	glBegin(GL_POLYGON);
 
 	glColor3f(0.0f, 0.0f, 0.0f);
@@ -73,6 +101,52 @@ void dibujarCasa() {
 	glEnd();
 }
 
+void dibujarNubes() {
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.20 * cos(i * 3.14159 / 180.0) - 0.40,
+			0.08 * sin(i * 3.14159 / 180.0) + 0.55,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.13 * cos(i * 3.14159 / 180.0) - 0.28,
+			0.05 * sin(i * 3.14159 / 180.0) + 0.63,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.17 * cos(i * 3.14159 / 180.0) + 0.70,
+			0.08 * sin(i * 3.14159 / 180.0) + 0.55,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(1.0f, 1.0f, 1.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.13 * cos(i * 3.14159 / 180.0) + 0.78,
+			0.07 * sin(i * 3.14159 / 180.0) + 0.63,
+			0.0f
+		);
+	}
+	glEnd();
+}
+
 void dibujarArbol() {
 	glBegin(GL_POLYGON);
 
@@ -83,6 +157,39 @@ void dibujarArbol() {
 	glVertex3f(-0.8f, -0.3f, 0.0f);
 	glVertex3f(-0.6f, -0.3f, 0.0f);
 
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.1f, 0.6f, 0.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.30 * cos(i * 3.14159 / 180.0) - 0.70,
+			0.25 * sin(i * 3.14159 / 180.0) - 0.20,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.1f, 0.6f, 0.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.25 * cos(i * 3.14159 / 180.0) - 0.60,
+			0.25 * sin(i * 3.14159 / 180.0) - 0.0,
+			0.0f
+		);
+	}
+	glEnd();
+
+	glBegin(GL_POLYGON);
+	glColor3f(0.1f, 0.6f, 0.0f);
+	for (double i = 0; i < 360.0; i += 5) {
+		glVertex3f(
+			0.22 * cos(i * 3.14159 / 180.0) - 0.70,
+			0.22 * sin(i * 3.14159 / 180.0) + 0.2,
+			0.0f
+		);
+	}
 	glEnd();
 }
 
@@ -104,8 +211,8 @@ void dibujarSol() {
 	glColor3f(1.0f, 1.0f, 0.2f);
 	for (double i = 0; i < 360.0; i += 5) {
 		glVertex3f(
-			0.2 * cos(i * 3.14159 / 180.0) - 0.7,
-			0.2 * sin(i * 3.14159 / 180.0) + 0.7,
+			0.2 * cos(i * 3.14159 / 180.0) - 0.75,
+			0.2 * sin(i * 3.14159 / 180.0) + 0.75,
 			0.0f
 		);
 	}
@@ -188,6 +295,7 @@ void dibujarTriangulos() {
 void dibujar() {
 	dibujarSol();
 	dibujarCesped();
+	dibujarNubes();
 	dibujarCasa();
 	dibujarArbol();
 }
